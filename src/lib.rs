@@ -1,3 +1,4 @@
+#![no_std]
 fn improved_felmat_test(n: u64, a: u64) -> bool {
     if a == 0 {
         return true;
