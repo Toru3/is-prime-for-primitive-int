@@ -1,0 +1,26 @@
+[package]
+name = "is-prime-for-primitive-int"
+version = "0.1.0"
+authors = ["Toru3 <ryuutet@gmail.com>"]
+edition = "2018"
+description = "is_prime for primitive ineger type"
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/is-prime-for-primitive-int/"
+repository = "https://gitlab.com/Toru3/is-prime-for-primitive-int"
+readme = "README.md"
+keywords = ["primality","test", "prime"]
+categories = ["no-std"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+fast-modulo = "0.2.0"
+
+[dev-dependencies]
+rand = "0.8.0"
+
+[package.metadata.docs.rs]
+rustdoc-args = [
+    "--html-in-header",
+    "katex.html",
+]
