@@ -1,4 +1,6 @@
 #![no_std]
+use core::convert::TryInto;
+
 fn improved_felmat_test(n: u64, a: u64) -> bool {
     if a == 0 {
         return true;
@@ -89,6 +91,75 @@ pub fn is_prime_u64(n: u64) -> bool {
         return true;
     }
     miller_rabin_primality_test(n)
+}
+
+/// primality test
+/// ```
+/// use is_prime_for_primitive_int::IsPrime;
+/// assert_eq!(2.is_prime(), true);
+/// assert_eq!(57.is_prime(), false);
+/// assert_eq!(91.is_prime(), false);
+/// assert_eq!(97.is_prime(), true);
+/// ```
+pub trait IsPrime {
+    fn is_prime(self) -> bool;
+}
+
+impl IsPrime for u64 {
+    fn is_prime(self) -> bool {
+        is_prime_u64(self)
+    }
+}
+impl IsPrime for u32 {
+    fn is_prime(self) -> bool {
+        is_prime_u64(self.into())
+    }
+}
+impl IsPrime for u16 {
+    fn is_prime(self) -> bool {
+        is_prime_u64(self.into())
+    }
+}
+impl IsPrime for u8 {
+    fn is_prime(self) -> bool {
+        is_prime_u64(self.into())
+    }
+}
+impl IsPrime for i64 {
+    fn is_prime(self) -> bool {
+        if self < 0 {
+            false
+        } else {
+            is_prime_u64(self.try_into().unwrap())
+        }
+    }
+}
+impl IsPrime for i32 {
+    fn is_prime(self) -> bool {
+        if self < 0 {
+            false
+        } else {
+            is_prime_u64(self.try_into().unwrap())
+        }
+    }
+}
+impl IsPrime for i16 {
+    fn is_prime(self) -> bool {
+        if self < 0 {
+            false
+        } else {
+            is_prime_u64(self.try_into().unwrap())
+        }
+    }
+}
+impl IsPrime for i8 {
+    fn is_prime(self) -> bool {
+        if self < 0 {
+            false
+        } else {
+            is_prime_u64(self.try_into().unwrap())
+        }
+    }
 }
 
 #[cfg(test)]
