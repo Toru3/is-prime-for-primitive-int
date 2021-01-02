@@ -1,6 +1,6 @@
 [package]
 name = "is-prime-for-primitive-int"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Toru3 <ryuutet@gmail.com>"]
 edition = "2018"
 description = "is_prime for primitive ineger type"
