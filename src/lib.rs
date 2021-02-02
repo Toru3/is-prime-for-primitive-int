@@ -102,62 +102,62 @@ pub fn is_prime_u64(n: u64) -> bool {
 /// assert_eq!(97.is_prime(), true);
 /// ```
 pub trait IsPrime {
-    fn is_prime(self) -> bool;
+    fn is_prime(&self) -> bool;
 }
 
 impl IsPrime for u64 {
-    fn is_prime(self) -> bool {
-        is_prime_u64(self)
+    fn is_prime(&self) -> bool {
+        is_prime_u64(*self)
     }
 }
 impl IsPrime for u32 {
-    fn is_prime(self) -> bool {
-        is_prime_u64(self.into())
+    fn is_prime(&self) -> bool {
+        is_prime_u64((*self).into())
     }
 }
 impl IsPrime for u16 {
-    fn is_prime(self) -> bool {
-        is_prime_u64(self.into())
+    fn is_prime(&self) -> bool {
+        is_prime_u64((*self).into())
     }
 }
 impl IsPrime for u8 {
-    fn is_prime(self) -> bool {
-        is_prime_u64(self.into())
+    fn is_prime(&self) -> bool {
+        is_prime_u64((*self).into())
     }
 }
 impl IsPrime for i64 {
-    fn is_prime(self) -> bool {
-        if self < 0 {
+    fn is_prime(&self) -> bool {
+        if *self < 0 {
             false
         } else {
-            is_prime_u64(self.try_into().unwrap())
+            is_prime_u64((*self).try_into().unwrap())
         }
     }
 }
 impl IsPrime for i32 {
-    fn is_prime(self) -> bool {
-        if self < 0 {
+    fn is_prime(&self) -> bool {
+        if *self < 0 {
             false
         } else {
-            is_prime_u64(self.try_into().unwrap())
+            is_prime_u64((*self).try_into().unwrap())
         }
     }
 }
 impl IsPrime for i16 {
-    fn is_prime(self) -> bool {
-        if self < 0 {
+    fn is_prime(&self) -> bool {
+        if *self < 0 {
             false
         } else {
-            is_prime_u64(self.try_into().unwrap())
+            is_prime_u64((*self).try_into().unwrap())
         }
     }
 }
 impl IsPrime for i8 {
-    fn is_prime(self) -> bool {
-        if self < 0 {
+    fn is_prime(&self) -> bool {
+        if *self < 0 {
             false
         } else {
-            is_prime_u64(self.try_into().unwrap())
+            is_prime_u64((*self).try_into().unwrap())
         }
     }
 }
