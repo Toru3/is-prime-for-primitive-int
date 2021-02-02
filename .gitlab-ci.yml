@@ -1,27 +1,20 @@
-# This file is a template, and might need editing before it works on your project.
-# Official language image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/rust/tags/
 image: "rust:latest"
 
-# Use cargo to test the project
-test:fmt:
+test:check:
   script:
-    - rustup default nightly
-    - rustup component add rustfmt
-    - rustup update
+    - rustup toolchain install nightly --component rustfmt clippy
     - rustup --version && rustc --version && cargo --version
     - cargo fmt --all -- --check
+    - cargo clippy --workspace --all-targets --all-features --verbose -- -D warnings
 
 test:test:
   script:
-    - rustup default nightly
-    - rustup update
+    - rustup toolchain install nightly
     - rustup --version && rustc --version && cargo --version
-    - cargo test --all --verbose
+    - cargo test --workspace --verbose
 
 test:bench:
   script:
-    - rustup default nightly
-    - rustup update
+    - rustup toolchain install nightly
     - rustup --version && rustc --version && cargo --version
-    - cargo bench --all --verbose
+    - cargo bench --workspace --verbose
