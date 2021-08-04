@@ -1,10 +1,10 @@
 [package]
 name = "is-prime-for-primitive-int"
-version = "0.4.0"
+version = "0.5.0"
 authors = ["Toru3 <ryuutet@gmail.com>"]
 edition = "2018"
 description = "is_prime for primitive ineger type"
-license = "MIT OR Apache-2.0"
+license = "AGPL-3.0-or-later"
 documentation = "https://docs.rs/is-prime-for-primitive-int/"
 repository = "https://gitlab.com/Toru3/is-prime-for-primitive-int"
 readme = "README.md"
@@ -14,7 +14,7 @@ categories = ["no-std"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-fast-modulo = "0.2.0"
+fast-modulo = "0.3.0"
 
 [dev-dependencies]
 rand = "0.8.0"

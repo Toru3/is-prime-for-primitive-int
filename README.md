@@ -7,3 +7,5 @@ assert_eq!(57.is_prime(), false);
 assert_eq!(91.is_prime(), false);
 assert_eq!(97.is_prime(), true);
 ```
+# Licence
+AGPL-3.0-or-later
