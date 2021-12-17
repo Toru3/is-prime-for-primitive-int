@@ -1,13 +1,33 @@
 #![no_std]
 use core::convert::TryInto;
 
+fn mulmod_u64(a: u64, b: u64, m: u64) -> u64 {
+    let aa = a as u128;
+    let bb = b as u128;
+    let mm = m as u128;
+    let rr = aa * bb % mm;
+    rr as _
+}
+
+fn powmod_u64(mut a: u64, mut p: u64, m: u64) -> u64 {
+    let mut y = 1;
+    while p > 0 {
+        if p % 2 == 1 {
+            y = mulmod_u64(y, a, m);
+        }
+        a = mulmod_u64(a, a, m);
+        p /= 2;
+    }
+    y
+}
+
 fn improved_felmat_test(n: u64, a: u64) -> bool {
     if a == 0 {
         return true;
     }
     let s = (n - 1).trailing_zeros();
     let d = n >> s;
-    let mut ap = fast_modulo::powmod_u64(a, d, n);
+    let mut ap = powmod_u64(a, d, n);
     if ap == 1 {
         return true;
     }
@@ -15,7 +35,7 @@ fn improved_felmat_test(n: u64, a: u64) -> bool {
         if ap == n - 1 {
             return true;
         }
-        ap = fast_modulo::mulmod_u64(ap, ap, n);
+        ap = mulmod_u64(ap, ap, n);
     }
     false
 }
