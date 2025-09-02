@@ -104,7 +104,12 @@ pub fn is_prime_u64(n: u64) -> bool {
     if n == 2 || n == 3 || n == 5 || n == 7 {
         return true;
     }
-    if n < 11 || n % 2 == 0 || n % 3 == 0 || n % 5 == 0 || n % 7 == 0 {
+    if n < 11
+        || n.is_multiple_of(2)
+        || n.is_multiple_of(3)
+        || n.is_multiple_of(5)
+        || n.is_multiple_of(7)
+    {
         return false;
     }
     if n < 11 * 11 {
