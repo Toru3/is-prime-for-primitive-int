@@ -194,12 +194,12 @@ mod tests {
         if n == 2 {
             return true;
         }
-        if n < 2 || n % 2 == 0 {
+        if n < 2 || n.is_multiple_of(2) {
             return false;
         }
         let mut d = 3;
         while d * d <= n {
-            if n % d == 0 {
+            if n.is_multiple_of(d) {
                 return false;
             }
             d += 2;
